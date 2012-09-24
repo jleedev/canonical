@@ -1,0 +1,25 @@
+{
+    "background": {
+        "scripts": [
+            "messages.js",
+            "background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "messages.js",
+                "content.js"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ],
+    "description": "Displays the canonical URL for a resource.",
+    "manifest_version": 2,
+    "name": "Canonical URL",
+    "page_action": {},
+    "version": "1.0"
+}
