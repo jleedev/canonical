@@ -15,7 +15,7 @@ function visitCanonical(message, sender) {
 chrome.extension.onMessage.addListener(visitCanonical);
 
 function updateVisibility() {
-  var canonicalLink = document.querySelector('link[rel="canonical"]');
+  var canonicalLink = document.querySelector('link[rel~="canonical"]');
   if (canonicalLink == null) return;
   // nb: will be absolute
   canonicalUrl = canonicalLink.href;
