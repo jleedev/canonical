@@ -19,6 +19,7 @@ function updateVisibility() {
   if (canonicalLink == null) return;
   // nb: will be absolute
   canonicalUrl = canonicalLink.href;
+  if (canonicalUrl == location.href) return;
   message = {
     type: UPDATE_VISIBILITY,
     visibility: true,
