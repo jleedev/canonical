@@ -1,3 +1,5 @@
+'use strict';
+
 var canonicalUrl;
 
 function visitCanonical(message, sender) {
@@ -25,12 +27,12 @@ function shouldBeVisible() {
 
 function updateVisibility() {
   if (shouldBeVisible()) {
-    message = {
+    var message = {
       type: UPDATE_VISIBILITY,
       visibility: true,
       url: canonicalUrl,
     };
-    chrome.extension.sendMessage(undefined, message);
+    chrome.extension.sendMessage('', message);
   }
 }
 
