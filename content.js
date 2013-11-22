@@ -14,18 +14,24 @@ function visitCanonical(message, sender) {
 
 chrome.extension.onMessage.addListener(visitCanonical);
 
-function updateVisibility() {
-  var canonicalLink = document.querySelector('link[rel~="canonical"]');
-  if (canonicalLink == null) return;
+function shouldBeVisible() {
+  var canonicalLink = document.querySelector('link[rel~=canonical]');
+  if (canonicalLink == null) return false;
   // nb: will be absolute
   canonicalUrl = canonicalLink.href;
-  if (canonicalUrl == location.href) return;
-  message = {
-    type: UPDATE_VISIBILITY,
-    visibility: true,
-    url: canonicalUrl,
-  };
-  chrome.extension.sendMessage(undefined, message);
+  if (canonicalUrl == location.href) return false;
+  return true;
+}
+
+function updateVisibility() {
+  if (shouldBeVisible()) {
+    message = {
+      type: UPDATE_VISIBILITY,
+      visibility: true,
+      url: canonicalUrl,
+    };
+    chrome.extension.sendMessage(undefined, message);
+  }
 }
 
 updateVisibility();
