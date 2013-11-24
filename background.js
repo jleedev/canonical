@@ -19,4 +19,4 @@ function updateVisibilityHandler(message, sender) {
   }
 }
 
-chrome.extension.onMessage.addListener(updateVisibilityHandler);
+chrome.runtime.onMessage.addListener(updateVisibilityHandler);

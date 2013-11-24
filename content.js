@@ -14,7 +14,7 @@ function visitCanonical(message, sender) {
   updateVisibility();
 }
 
-chrome.extension.onMessage.addListener(visitCanonical);
+chrome.runtime.onMessage.addListener(visitCanonical);
 
 function shouldBeVisible() {
   var canonicalLink = document.querySelector('link[rel~=canonical]');
