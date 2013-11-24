@@ -1,3 +1,5 @@
+'use strict';
+
 function sendVisitCanonical(tab) {
   var message = {type: VISIT_CANONICAL};
   chrome.tabs.sendMessage(tab.id, message);

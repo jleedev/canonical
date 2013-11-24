@@ -1,3 +1,5 @@
+'use strict';
+
 (function(self) {
   function DEFINE_message(name) {
     self[name] = name;
